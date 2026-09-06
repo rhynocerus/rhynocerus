@@ -34,6 +34,14 @@ The goal is not merely to make old hardware work, but to leave behind useful evi
 
 `Linux` · `USB` · `Hardware` · `Diagnostics` · `Documentation` · `Open Source`
 
+### 🎮 Open-source testing: [Godot Engine issue #122665](https://github.com/godotengine/godot/issues/122665#issuecomment-5558971941)
+
+Tested an open **Godot editor regression** on Linux and contributed a documented non-reproduction result to help narrow the affected environments.
+
+The test used **Godot 4.7.2 on Linux Mint 22.1, X11/Cinnamon, NVIDIA GeForce GT 730 and OpenGL Compatibility**, following the issue's reproduction steps with Single Window Mode enabled. The scene deleted normally and the reported `viewport.cpp:440` error did not occur.
+
+This contribution reflects the kind of open-source work I value: **reproduce carefully, record the environment precisely, test assumptions and leave useful evidence for maintainers**.
+
 ### 🤝 Open-source investigation: [Odin4 issue #270](https://github.com/Llucs/odin4/issues/270)
 
 Reported and documented a reproducible **Samsung SM-T560 Download Mode / USB disconnect issue** against the Odin4 project.

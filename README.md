@@ -34,6 +34,14 @@ The goal is not merely to make old hardware work, but to leave behind useful evi
 
 `Linux` · `USB` · `Hardware` · `Diagnostics` · `Documentation` · `Open Source`
 
+### 🤖 [Renovate Dependency Automation Lab](https://github.com/rhynocerus/renovate-lab)
+
+A public DevOps laboratory for testing **automated dependency management with Renovate, GitHub Actions CI and manual review**.
+
+The experiment documents both sides of dependency automation: a compatible ESLint patch update that passed CI and was merged, and a breaking Chalk major upgrade that installed successfully but failed at runtime and was rejected before reaching `main`.
+
+`Renovate` · `GitHub Actions` · `Node.js` · `CI/CD` · `Dependency Management` · `DevOps` · `Software Supply Chain`
+
 ### 🎮 Open-source testing: [Godot Engine issue #122665](https://github.com/godotengine/godot/issues/122665#issuecomment-5558971941)
 
 Tested an open **Godot editor regression** on Linux and contributed a documented non-reproduction result to help narrow the affected environments.

@@ -1,5 +1,13 @@
 # Luis Alvarado · `@rhynocerus`
 
+## RHYNUS Interactive Works
+
+I am RHYNUS: an independent developer and creator building at the intersection of interactive worlds, software, visual storytelling and digital technology. RHYNUS is the name I put on the work I make and the standards I hold myself to. RHYNUS Interactive Works is my studio identity: a place for ideas that deserve to become experiences people can actually explore.
+
+I design, code and shape projects from their first sketch to a working prototype. My current work includes Packet Runner, RinoSaur and RHYNUS Fusion Lab. With Fusion Lab, I am exploring how a world built around invention, repair and discovery could become more physical and engaging in VR. That exploration is underway; I want the interaction to earn its place, especially the feel of using your hands in the workshop.
+
+My background spans programming, photography, graphic design, teaching, Linux and cybersecurity. It gives me an eye for composition, a habit of explaining complex things clearly and the patience to test, debug and refine. I build independently, learn relentlessly and take responsibility for the details. I am here to create a body of work with a recognizable voice, solid technical foundations and the ambition to stand alongside serious developers. I welcome collaborations that turn bold ideas into experiences worth returning to.
+
 **Cybersecurity / Blue Team · Linux · Python Automation · Software Development**
 
 Based in Spain and focused on practical technology: **building, testing, troubleshooting, documenting and improving systems**.

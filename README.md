@@ -66,6 +66,24 @@ The investigation included controlled reproduction steps, Linux/kernel/libusb en
 
 This is the kind of open-source work I want to keep doing: **observe carefully, reduce ambiguity, document evidence and make the next person's investigation easier**.
 
+## 🧪 Open-source QA & reproducibility
+
+I maintain small public QA repositories for independent reproduction, controlled comparison and evidence collection around real upstream issues.
+
+### [Zeek QA #5037](https://github.com/rhynocerus/zeek-qa-5037)
+
+Reproduced a DNS logging issue on **Zeek 9.0.0** using a controlled PCAP, event-level comparison, `dns.log`, tcpdump output and SHA-256 verification. The evidence distinguishes the DNS event interpretation from the misleading final log association.
+
+`Zeek` · `DNS` · `PCAP` · `tcpdump` · `Blue Team` · `Network Analysis` · `QA`
+
+### [lnav QA #1749](https://github.com/rhynocerus/lnav-qa-1749)
+
+Investigated a reproducible lnav file-following failure around CTest log replacement. The case includes repeated runs, inode tracking, `strace`, clean-XDG controls and cross-host comparison, while explicitly separating observations from unproven root-cause hypotheses.
+
+`lnav` · `Linux` · `CTest` · `strace` · `Reproducibility` · `Open Source QA`
+
+These repositories are intentionally evidence-first: **environment, control, reproduction, comparison, result and scope**.
+
 ## 🛡️ Cybersecurity & systems
 
 Hands-on work and lab practice include:

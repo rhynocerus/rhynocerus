@@ -82,6 +82,18 @@ Investigated a reproducible lnav file-following failure around CTest log replace
 
 `lnav` · `Linux` · `CTest` · `strace` · `Reproducibility` · `Open Source QA`
 
+### [lnav QA #1741](https://github.com/rhynocerus/oss-qa-lnav-1741)
+
+Reproduced a line-navigation inconsistency on **lnav 0.14.1** with synthetic syslog data. Interactive `:goto 4000` succeeds, while both `file:line` and command-line `-c ':goto 4000'` land near the end of the file. The repository includes a generator, screenshots and a compact result matrix.
+
+`lnav` · `Linux` · `CLI` · `Synthetic Logs` · `Reproducibility` · `QA`
+
+### [Bandit QA #1432](https://github.com/rhynocerus/oss-qa-bandit-1432)
+
+Reproduced a **Bandit 1.9.4** CLI crash on Python 3.12.3: a normal `-ii -ll` control completes with exit code 0, while repeated severity/confidence flags trigger an `IndexError` and exit code 1 in more than one argument order. The case includes isolated-environment reproduction and captured evidence.
+
+`Bandit` · `Python` · `CLI` · `Secure Development` · `Argument Handling` · `Open Source QA`
+
 These repositories are intentionally evidence-first: **environment, control, reproduction, comparison, result and scope**.
 
 ## 🛡️ Cybersecurity & systems

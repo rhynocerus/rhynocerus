@@ -39,6 +39,7 @@ Current work includes gameplay systems, scoring, shields, procedural packet gene
 A tactical turn-based board game in development, evolving from a 2.5D prototype toward a real 3D world with floating islands, atmospheric scenery and future WebXR exploration.
 
 - [Source repository](https://github.com/rhynocerus/rinosaur) — private development repository
+- [GitHub Pages distribution](https://rhynocerus.github.io/rinosaur-web/)
 - [Play the current web version](https://rinosaur-rhynus.rhynus.chatgpt.site/)
 
 `Godot` · `GDScript` · `3D Board Game` · `WebXR Roadmap`

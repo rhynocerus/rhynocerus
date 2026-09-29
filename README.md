@@ -34,6 +34,25 @@ A 2D arcade game inspired by computer networks and cybersecurity, built with **G
 
 Current work includes gameplay systems, scoring, shields, procedural packet generation and multiplatform preparation.
 
+### 🦏 RinoSaur
+
+A tactical turn-based board game in development, evolving from a 2.5D prototype toward a real 3D world with floating islands, atmospheric scenery and future WebXR exploration.
+
+- [Source repository](https://github.com/rhynocerus/rinosaur) — private development repository
+- [Play the current web version](https://rinosaur-rhynus.rhynus.chatgpt.site/)
+
+`Godot` · `GDScript` · `3D Board Game` · `WebXR Roadmap`
+
+### 🔧 RHYNUS Fusion Lab
+
+A repair, invention and discovery game exploring interactive systems, resource fusion and future workshop-style VR interaction.
+
+- [Play the current web build](https://rhynocerus.github.io/rfl-web-prueba/)
+- [VR/WebXR v0.2 playtest](https://rhynocerus.github.io/rfl-web-prueba/vr-v02/)
+- [Previous VR build](https://rhynocerus.github.io/rfl-web-prueba/vr/)
+
+`Godot` · `Web` · `VR/WebXR` · `Interactive Systems`
+
 ### 🔧 [Legacy Device Lab](https://github.com/rhynocerus/legacy-device-lab)
 
 A growing laboratory for documenting **legacy hardware, Linux compatibility, USB diagnostics and reproducible technical investigations**.

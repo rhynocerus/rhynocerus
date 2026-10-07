@@ -132,6 +132,15 @@ Hands-on work and lab practice include:
 
 My strongest interest is defensive security: **SOC operations, monitoring, incident analysis, Linux systems and security automation**.
 
+### 🧪 SOC lab: SSH authentication triage
+
+A defensive exercise with **simulated SSH authentication logs**, a small local Python parser, and an evidence-first triage prompt. It distinguishes an observed pattern from an unconfirmed brute-force hypothesis; the lab makes no network connections.
+
+- [Exercise guide and source files](https://github.com/rhynocerus/rhynocerus/tree/main/blue-team-labs/ssh-auth-triage)
+- [Read the companion article](https://rhynus-cuaderno-blue-team.rhynus.chatgpt.site/)
+
+`Python` · `Linux` · `SOC` · `SIEM` · `Synthetic Logs` · `Blue Team`
+
 ## 🧰 Technologies
 
 **Languages & development**  

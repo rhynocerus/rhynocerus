@@ -28,10 +28,18 @@ record go-make go test -C .make -count=1 -json ./...
 record unit-selected go test -count=1 -p 2 -timeout=10m -tags=containers_image_openpgp,exclude_graphdriver_btrfs -json \
   ./syft/artifact/... ./syft/file/... ./syft/linux/... ./syft/license/... ./syft/cpe/... ./syft/pkg \
   ./syft/pkg/cataloger/javascript/... ./syft/pkg/cataloger/python/... ./syft/format/...
-record build go build -p 2 -tags=containers_image_openpgp,exclude_graphdriver_btrfs -o "$out/syft" ./cmd/syft
+record build env CGO_ENABLED=0 go build -p 2 -tags=containers_image_openpgp,exclude_graphdriver_btrfs -o "$out/syft" ./cmd/syft
 if [[ -x "$out/syft" ]]; then
+  # El helper Docker de upstream usa snapshot/ e ignora SYFT_BINARY_LOCATION.
+  goos="$(go env GOOS)"
+  arch="$(go env GOARCH)"
+  case "$arch" in amd64) arch=amd64_v1 ;; arm64) arch=arm64_v8.0 ;; esac
+  snapshot="$PWD/snapshot/${goos}-build_${goos}_${arch}/syft"
+  mkdir -p "$(dirname "$snapshot")"
+  cp "$out/syft" "$snapshot"
+  chmod +x "$snapshot"
   export SYFT_BINARY_LOCATION="$out/syft" SYFT_CHECK_FOR_APP_UPDATE=false
-  record cli-selected go test -count=1 -p 2 -timeout=10m -json ./test/cli \
+  record cli-selected go test -count=1 -p 2 -timeout=10m -json ./test/cli -show-output \
     -run '^(TestVersionCmdPrintsToStdout|TestGGUFModelIsCataloged|TestDirectoryScanCompletesWithinTimeout|TestMalformedInputsStillProduceSBOM|Test_RequestedPathIncludesSymlink)$'
   record smoke python3 "$root/scripts/smoke.py" "$out/syft" "$out/smoke"
 fi

@@ -1,6 +1,8 @@
 name: Syft QA · RIW
 on:
   workflow_dispatch:
+  push:
+    branches: [qa/syft-docker-path]
 permissions:
   contents: read
 jobs:

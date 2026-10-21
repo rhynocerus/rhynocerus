@@ -71,5 +71,83 @@
     "spdx_packages": true,
     "cyclonedx_format": true,
     "spdx_format": true
-  }
+  },
+  "report_version": "1.1",
+  "actions_runs": [
+    {
+      "run_id": 39625354079,
+      "conclusion": "failure",
+      "source_commit": "59359c631dd3699b70fc76bdd777aff75715db50",
+      "unit_top_level_pass": 355,
+      "cli_top_level_pass": 4,
+      "cli_top_level_fail": 1,
+      "failed_test": "TestDirectoryScanCompletesWithinTimeout",
+      "process_exit_code": 126,
+      "cause": "El helper Docker requiere el binario en snapshot/; el script original solo lo compilaba en results/.",
+      "evidence": "evidence/actions-39625354079.zip",
+      "artifact_sha256": "ff7c94ce65df135ec754c9f89a5759184a90aa6006496ed7107634263029afcb"
+    },
+    {
+      "run_id": 39626601905,
+      "conclusion": "success",
+      "source_commit": "fd2700e79687f0b48f8f47cf5556b816ee06c949",
+      "suites": {
+        "unit-selected.log": {
+          "packages": {
+            "skip": 3,
+            "pass": 33
+          },
+          "top_level_tests": {
+            "pass": 355
+          },
+          "test_and_subtest_events": {
+            "pass": 2732
+          }
+        },
+        "cli-selected.log": {
+          "packages": {
+            "pass": 1
+          },
+          "top_level_tests": {
+            "pass": 5
+          },
+          "test_and_subtest_events": {
+            "pass": 17
+          }
+        },
+        "go-make.log": {
+          "packages": {
+            "pass": 1
+          },
+          "top_level_tests": {
+            "pass": 1
+          },
+          "test_and_subtest_events": {
+            "pass": 6
+          }
+        },
+        "exit_codes": {
+          "binary-fixture-size.exit": 0,
+          "build.exit": 0,
+          "cli-selected.exit": 0,
+          "go-make.exit": 0,
+          "labeler.exit": 0,
+          "smoke.exit": 0,
+          "unit-selected.exit": 0
+        },
+        "smoke_checks": {
+          "syft_packages": true,
+          "cyclonedx_packages": true,
+          "spdx_packages": true,
+          "cyclonedx_format": true,
+          "spdx_format": true
+        }
+      },
+      "build_cgo_enabled": false,
+      "evidence": "evidence/actions-39626601905.zip",
+      "artifact_sha256": "926a57a6f5b34186567363c99e047306a0f407e5a3ba92cf6aaea2b02e2ded1e"
+    }
+  ],
+  "latest_verified_environment": "GitHub Actions ubuntu-24.04 (24.04.5 LTS)",
+  "latest_verified_run": 39626601905
 }

@@ -1,0 +1,28 @@
+name: Syft QA · RIW
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  selected-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Preparar Go, fuente y fixtures fijados
+        run: bash qa/syft/2026-10-21/scripts/prepare.sh
+      - name: Ejecutar pruebas y guardar evidencias
+        run: bash qa/syft/2026-10-21/scripts/run.sh
+      - name: Conservar registros y SBOMs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: syft-qa-results
+          path: |
+            qa/syft/2026-10-21/results/**/*.log
+            qa/syft/2026-10-21/results/**/*.exit
+            qa/syft/2026-10-21/results/**/*.json
+          retention-days: 30
+          if-no-files-found: warn

@@ -1,0 +1,1 @@
+f27adb935022d94df8dc77719c322dda592c78a0d57a6f7dcdd8d900b248c454  oras_1.3.4_linux_amd64.tar.gz

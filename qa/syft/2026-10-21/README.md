@@ -2,9 +2,9 @@
 
 **RHYNUS Interactive Works (RIW) · 21 de octubre de 2026**
 
-**Informe de pruebas Syft – v1.0 – RIW**
+**Informe de pruebas Syft – v1.1 – RIW**
 
-Syft ofrece una infraestructura amplia de pruebas. En esta evaluación, la selección unitaria pasó completa tras preparar sus archivos de prueba: **355 tests principales en 33 paquetes**, con **2.732 eventos aprobados contando tests y subtests**. Estos dos recuentos se solapan; no deben sumarse. La compilación y la generación de tres formatos SBOM también funcionaron. Una prueba CLI quedó bloqueada por ausencia de Docker.
+Syft ofrece una infraestructura amplia de pruebas. En esta evaluación, la selección unitaria pasó completa tras preparar sus archivos de prueba: **355 tests principales en 33 paquetes**, con **2.732 eventos aprobados contando tests y subtests**. Estos dos recuentos se solapan; no deben sumarse. La compilación y la generación de tres formatos SBOM también funcionaron. Una prueba CLI quedó bloqueada por ausencia de Docker en el entorno local. **La validación posterior en GitHub Actions ya supera los cinco tests CLI, incluido el caso Docker; véase la actualización v1.1.**
 
 Es una evaluación parcial y reproducible, no una certificación de seguridad ni una ejecución completa de la CI de Anchore. No se modificó el código de Syft ni se enviaron incidencias a su repositorio.
 
@@ -37,7 +37,7 @@ El workflow oficial distribuye estas tareas entre Linux, Windows y macOS. Su ent
 
 El bootstrap oficial anuncia Go 1.26.2 por defecto, mientras `go.mod` requiere 1.26.8. Se preparó directamente 1.26.8 para evitar depender de una actualización automática del toolchain. Esta diferencia de configuración no se considera por sí sola un defecto del proyecto.
 
-## Resultados observados
+## Resultados locales originales
 
 | Comprobación | Resultado | Evidencia |
 |---|---|---|
@@ -71,9 +71,31 @@ bash qa/syft/2026-10-21/scripts/run.sh
 
 La preparación descarga Go, la revisión fijada de Syft, sus dependencias y los fixtures. Usa `.work/`, sin instalar herramientas en directorios del sistema. Los resultados de cada repetición van a `results/<fecha>/`. Docker con un daemon operativo es necesario para completar el caso CLI de contenedores; sin él, el script conservará el fallo y devolverá un estado no satisfactorio.
 
-También se incluye el workflow manual [Syft QA · RIW](https://github.com/rhynocerus/rhynocerus/actions/workflows/syft-qa.yml). Al ejecutarlo en GitHub Actions prepara el entorno, repite la selección y conserva registros/SBOMs como artefacto durante 30 días. **Este informe recoge la ejecución local; el workflow de Actions no se ha ejecutado en esta evaluación.**
+También se incluye el workflow manual [Syft QA · RIW](https://github.com/rhynocerus/rhynocerus/actions/workflows/syft-qa.yml). Al ejecutarlo en GitHub Actions prepara el entorno, repite la selección y conserva registros/SBOMs como artefacto durante 30 días. Los resultados locales originales se conservan como historial. Las ejecuciones posteriores en Actions se documentan a continuación.
 
 Para ampliar después al conjunto oficial, en una máquina con Docker y las herramientas del bootstrap, pueden ejecutarse `make unit`, `make integration` y `make cli`. Quedan fuera de esta evaluación esas suites completas, la aceptación multiplataforma, el instalador, Podman/Buildah, análisis estático completo, cobertura y detector de carreras.
+
+## Actualización v1.1: validación en GitHub Actions
+
+La [primera ejecución en Actions](https://github.com/rhynocerus/rhynocerus/actions/runs/39625354079) aprobó las 355 pruebas unitarias principales, las herramientas internas, la compilación y el smoke test. El único fallo fue `TestDirectoryScanCompletesWithinTimeout`, que terminó con código 126.
+
+La causa estaba en el script RIW: compilaba Syft en `results/` y configuraba `SYFT_BINARY_LOCATION`, pero el helper de upstream para Docker ignora esa variable y monta el ejecutable desde `snapshot/linux-build_linux_amd64_v1/syft`. El ejecutable no estaba en esa ruta. El estado rojo correspondía a un error de preparación de nuestro entorno; no confirmó un defecto de Syft.
+
+Se corrigió el script para compilar con `CGO_ENABLED=0` —compatible con Alpine— y copiar el ejecutable al directorio snapshot esperado. Se añadió `-show-output` para conservar el diagnóstico completo cuando una prueba CLI falla. No se omitieron ni alteraron tests de Syft.
+
+La [segunda ejecución en Actions](https://github.com/rhynocerus/rhynocerus/actions/runs/39626601905), sobre la corrección `fd2700e79687f0b48f8f47cf5556b816ee06c949`, terminó **success** en Ubuntu 24.04.5 LTS:
+
+| Comprobación | Resultado |
+|---|---|
+| Selección unitaria | 355 tests principales aprobados en 33 paquetes; 2.732 eventos aprobados contando subtests |
+| Selección CLI | 5 tests principales aprobados, incluido Docker; 17 eventos aprobados contando subtests |
+| Etiquetador Python | 8 tests aprobados |
+| Herramientas Go `.make` | 1 test principal y 5 subtests aprobados |
+| Snippets, compilación y smoke test RIW | Aprobados; las cinco comprobaciones de los SBOMs fueron satisfactorias |
+
+Todos los comandos registrados terminaron con código 0. Esto valida la selección descrita, no la suite oficial completa ni la seguridad global del proyecto.
+
+Se conservan los artefactos originales para comparar ambos resultados: [primera ejecución fallida](evidence/actions-39625354079.zip) y [segunda ejecución satisfactoria](evidence/actions-39626601905.zip). Sus SHA-256 se incluyen en `SHA256SUMS` y en `summary.json`. La activación automática usada para validar la rama de corrección se retiró; el workflow publicado sigue siendo manual.
 
 ## Fuentes y trazabilidad
 

@@ -1,0 +1,7 @@
+{
+  "syft_packages": true,
+  "cyclonedx_packages": true,
+  "spdx_packages": true,
+  "cyclonedx_format": true,
+  "spdx_format": true
+}

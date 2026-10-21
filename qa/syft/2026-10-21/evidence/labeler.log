@@ -1,0 +1,13 @@
+test_filter_to_schema_files (__main__.Labeler.test_filter_to_schema_files) ... ok
+test_get_pr_changed_files (__main__.Labeler.test_get_pr_changed_files) ... ok
+test_get_semver (__main__.Labeler.test_get_semver) ... ok
+test_is_breaking_change (__main__.Labeler.test_is_breaking_change) ... ok
+test_is_ci (__main__.Labeler.test_is_ci) ... ok
+test_major_version (__main__.Labeler.test_major_version) ... ok
+test_sort_json_schema_files (__main__.Labeler.test_sort_json_schema_files) ... ok
+test_summarize_schema_files (__main__.Labeler.test_summarize_schema_files) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK

@@ -1,0 +1,8 @@
+Ubuntu 24.04.3 LTS, Linux x86_64
+Go 1.26.8; Python 3.12; GCC disponible
+8 GiB de límite de memoria; 8 CPU de cuota; disco efímero 32 GiB
+Docker: no instalado
+GOTOOLCHAIN=local; GOMAXPROCS=4; go test -p 2
+Build tags: containers_image_openpgp,exclude_graphdriver_btrfs
+Detector de carreras y cobertura: no ejecutados
+Fuente sin modificaciones de archivos versionados

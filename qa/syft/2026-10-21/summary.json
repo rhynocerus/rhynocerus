@@ -1,0 +1,75 @@
+{
+  "project": "anchore/syft",
+  "revision": "f15c3343e29dfb20cf6d82c820e7090b49808c96",
+  "date": "2026-10-21",
+  "timezone": "Europe/Madrid",
+  "go": "1.26.8",
+  "os": "Ubuntu 24.04.3 LTS",
+  "arch": "amd64",
+  "race_detector": false,
+  "fixtures_digest": "sha256:647e0205eadc1bcf516ce517cfa039d3738129dd3e41bba690df1f1cacc99143",
+  "suites": {
+    "go-make": {
+      "packages": {
+        "pass": 1
+      },
+      "top_level_tests": {
+        "pass": 1
+      },
+      "test_and_subtest_events": {
+        "pass": 6
+      },
+      "exit_code": 0
+    },
+    "unit-selected": {
+      "packages": {
+        "skip": 3,
+        "pass": 24,
+        "fail": 9
+      },
+      "top_level_tests": {
+        "pass": 337,
+        "fail": 18
+      },
+      "test_and_subtest_events": {
+        "pass": 2671,
+        "fail": 47
+      },
+      "exit_code": 1
+    },
+    "unit-with-fixtures": {
+      "packages": {
+        "skip": 3,
+        "pass": 33
+      },
+      "top_level_tests": {
+        "pass": 355
+      },
+      "test_and_subtest_events": {
+        "pass": 2732
+      },
+      "exit_code": 0
+    },
+    "cli-selected": {
+      "packages": {
+        "fail": 1
+      },
+      "top_level_tests": {
+        "fail": 1,
+        "pass": 4
+      },
+      "test_and_subtest_events": {
+        "fail": 1,
+        "pass": 16
+      },
+      "exit_code": 1
+    }
+  },
+  "smoke_checks": {
+    "syft_packages": true,
+    "cyclonedx_packages": true,
+    "spdx_packages": true,
+    "cyclonedx_format": true,
+    "spdx_format": true
+  }
+}
